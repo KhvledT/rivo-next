@@ -1,0 +1,153 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+type Props = {
+  images?: string[];
+  instagram?: string;
+  tiktok?: string;
+  brand?: string;
+  description?: string;
+  linksBgImage?: string;
+};
+
+export default function SocialClient({
+  images,
+  instagram = "https://www.instagram.com/rivo_coffee",
+  tiktok = "https://www.tiktok.com/@rivocoffee",
+  brand = "RIVO",
+  description = "Follow us on social media and explore our latest moments.",
+  linksBgImage = "/gallery/links-bg.jpg",
+}: Props) {
+  return (
+    <main className="w-full min-h-screen">
+      {/* SOCIAL LINKS SECTION */}
+      <motion.section
+        suppressHydrationWarning
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="py-24 px-6 min-h-[93vh] md:px-12 lg:px-20 text-white flex flex-col justify-end"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url(${linksBgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <motion.div
+          suppressHydrationWarning
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+          className="max-w-6xl min-h-full"
+        >
+          <motion.h1
+            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+            className="text-4xl md:text-5xl font-extrabold"
+          >
+            {brand}
+          </motion.h1>
+
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+            className="mt-4 max-w-xl opacity-90"
+          >
+            {description}
+          </motion.p>
+
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+            className="mt-8 flex flex-wrap gap-4"
+          >
+            <a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-xl bg-white/15 hover:bg-white/25 transition"
+            >
+              Instagram
+            </a>
+
+            <a
+              href={tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-xl bg-white/15 hover:bg-white/25 transition"
+            >
+              TikTok
+            </a>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      {/* GALLERY SECTION */}
+      <section className="py-24 px-6 md:px-12 lg:px-20 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            suppressHydrationWarning
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.08 },
+              },
+            }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          >
+            {/* Featured image */}
+            {images?.[1] && (
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scale: 0.96 },
+                  show: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="relative col-span-2 row-span-2 aspect-[4/5] rounded-3xl overflow-hidden bg-neutral-200"
+              >
+                <Image
+                  src={images[1]}
+                  alt="Featured gallery image"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </motion.div>
+            )}
+
+            {/* Rest of images */}
+            {images?.slice(3).map((src, i) => (
+              <motion.div
+                key={src + i}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.96 },
+                  show: { opacity: 1, scale: 1 },
+                }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-200"
+              >
+                <Image
+                  src={src}
+                  alt={`Gallery image ${i + 2}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
