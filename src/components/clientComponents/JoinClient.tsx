@@ -1,7 +1,6 @@
 "use client";
 import BgImage from "@/assets/imgs/Join/RIVOFIED7866.webp";
 import { useState } from "react";
-import { Button } from "../ui/button";
 
 export default function JoinRivoPage() {
   const [type, setType] = useState<"job" | "model" | "feedback">("job");
@@ -10,7 +9,7 @@ export default function JoinRivoPage() {
     <main className="w-full min-h-screen">
       {/* HERO / BACKGROUND */}
       <section
-        className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 text-white"
+        className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 text-white py-20"
         style={{
           backgroundImage: `
             linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
