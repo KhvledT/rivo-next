@@ -25,5 +25,5 @@ export default function SocialPage() {
     Image7.src,
   ];
 
-  return <SocialClient images={images} linksBgImage={Image1.src} />;
+  return <SocialClient images={images} linksBgImage={Image1.src} ctaBgImage={Image7.src} />;
 }

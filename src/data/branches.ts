@@ -26,9 +26,9 @@ export interface Branch {
 export const branches: Branch[] = [
   {
     id: '1',
-    name: 'Rivo Gehan',
-    slug: 'rivo-gehan',
-    address: 'Gehan Al Sadat, Mansoura Qism 2, El Mansoura 1, Dakahlia Governorate 7650104',
+    name: 'Rivo Hay-Elgamaa',
+    slug: 'rivo-hay-elgamaa',
+    address: 'Hay Elgamaa, Mansoura Qism 2, El Mansoura 1, Dakahlia Governorate 7650104',
     city: 'Mansoura',
     openingHours: '7:00 AM - 2:00 AM',
     phone: '+201009859330',

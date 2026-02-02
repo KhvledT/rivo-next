@@ -14,6 +14,7 @@ import ProductCard from "../ProductCard";
 import Stack from "../ui/Stack";
 import NewCard from "../NewCard";
 import NewBg from '@/assets/Sections/NewBg.webp'
+import FeatureItem from "../FeatureCard";
 
 export default function HomeClient() {
   const featuredProducts = getFeaturedProducts();
@@ -81,9 +82,39 @@ export default function HomeClient() {
                 <Link href="/branches">
                   <Button
                     variant="outline"
-                    className="w-full sm:w-auto rounded-xl bg-card text-card-foreground hover:bg-card/90"
+                    className="
+                      relative
+                      w-full sm:w-auto
+                      rounded-full
+                      border border-white/30
+                      bg-white/5
+                      backdrop-blur-2xl
+                      text-white font-medium
+                      hover:text-white
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                      hover:bg-white/30
+                      transition-all duration-200
+
+                      before:absolute
+                      before:inset-0
+                      before:rounded-full
+                      before:bg-linear-to-b
+                      before:from-white/40
+                      before:to-transparent
+                      before:opacity-70
+                      before:pointer-events-none
+
+                      after:absolute
+                      after:inset-0
+                      after:rounded-full
+                      after:ring-1
+                      after:ring-white/20
+                      after:pointer-events-none
+
+                      active:scale-95"
                   >
-                    <MapPin className="mr-2 w-4 h-4 text-secondary-foreground" />
+                    <MapPin className="mr-2 w-4 h-4 opacity-90" />
                     View Branches
                   </Button>
                 </Link>
@@ -175,9 +206,39 @@ export default function HomeClient() {
 
             <Link href="/branches">
               <Button
-                variant="outline"
-                className="self-start md:self-auto rounded-xl border-border hover:bg-card "
-              >
+                    variant="outline"
+                    className="
+                      relative
+                      w-full sm:w-auto
+                      rounded-full
+                      border border-white/30
+                      bg-white/5
+                      backdrop-blur-2xl
+                      text-white font-medium
+                      hover:text-white
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                      hover:bg-white/30
+                      transition-all duration-200
+
+                      before:absolute
+                      before:inset-0
+                      before:rounded-full
+                      before:bg-linear-to-b
+                      before:from-white/40
+                      before:to-transparent
+                      before:opacity-70
+                      before:pointer-events-none
+
+                      after:absolute
+                      after:inset-0
+                      after:rounded-full
+                      after:ring-1
+                      after:ring-white/20
+                      after:pointer-events-none
+
+                      active:scale-95"
+                  >
                 View All Branches
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -255,6 +316,74 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* -------------------- SOCIAL / JOIN CTA (CLEAN) -------------------- */}
+      <section className="py-20 bg-background text-foreground">
+        <div className="container mx-auto px-4">
+          <div className="rounded-3xl border-4 border-primary/30 bg-card p-8 md:p-14">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              
+              {/* Left: Text */}
+              <div>
+                <span className="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full border border-border text-sm font-medium">
+                  <Users className="w-4 h-4" />
+                  RIVO Community
+                </span>
+
+                <h2 className="font-heading text-3xl md:text-4xl font-bold">
+                  Be Part of RIVO
+                </h2>
+
+                <p className="mt-4 text-muted-foreground max-w-md">
+                  Discover our social media platforms, join our team, or share your
+                  feedback to help us grow.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-4 flex-col sm:flex-row justify-center sm:justify-start items-center ">
+                  <Link href="/social">
+                    <Button className="btn-primary">
+                      Visit Social Page
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+
+                  <Link
+                    href="/join"
+                    className="text-sm font-medium text-primary hover:underline"
+                  >
+                    Apply for a job
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: Features */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <FeatureItem
+                  icon={<Coffee className="w-5 h-5" />}
+                  title="Our Socials"
+                  desc="Follow us for updates and promotions."
+                />
+                <FeatureItem
+                  icon={<Users className="w-5 h-5" />}
+                  title="Work With Us"
+                  desc="Join our team and grow with RIVO."
+                />
+                <FeatureItem
+                  icon={<Zap className="w-5 h-5" />}
+                  title="Creators & Models"
+                  desc="Collaborate with us on campaigns and content."
+                />
+                <FeatureItem
+                  icon={<Clock className="w-5 h-5" />}
+                  title="Your Feedback"
+                  desc="Help us improve by sharing your experience."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* -------------------- TESTIMONIALS (PRIMARY) -------------------- */}
       <TestimonialsCarousel />
@@ -282,8 +411,40 @@ export default function HomeClient() {
               </p>
               <Link href="/products">
                 <Button
-                  size="lg"
-                  className="mt-8 bg-background text-primary hover:bg-background/90 rounded-xl font-semibold"
+                    variant="outline"
+                    className="
+                      mt-10
+                      relative
+                      w-full sm:w-auto
+                      rounded-full
+                      border border-white/30
+                      bg-white/5
+                      backdrop-blur-2xl
+                      text-white font-medium
+                      hover:text-white
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                      hover:bg-white/30
+                      transition-all duration-200
+
+                      before:absolute
+                      before:inset-0
+                      before:rounded-full
+                      before:bg-linear-to-b
+                      before:from-white/40
+                      before:to-transparent
+                      before:opacity-70
+                      before:pointer-events-none
+
+                      after:absolute
+                      after:inset-0
+                      after:rounded-full
+                      after:ring-1
+                      after:ring-white/20
+                      after:pointer-events-none
+
+                      active:scale-95"
+                  
                 >
                   Start Your Order
                   <ArrowRight className="ml-2 w-4 h-4" />

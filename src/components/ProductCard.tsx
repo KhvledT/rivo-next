@@ -7,6 +7,8 @@ import productImage from "@/assets/imgs/product1.png";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 type Props = {
   product: Product;
@@ -59,6 +61,10 @@ export default function ProductCard({
 
   function handleAddToCart(e?: React.MouseEvent) {
     e?.preventDefault();
+    
+    // display tooster from sonner
+
+    toast.success("Item added to cart!", { position: "top-left" });
     const selectedAddon = addons.find((a) => a.id === selectedAddonId);
     // addItem(product, size?, addons?)
     addItem(product, selectedSize, selectedAddon ? [selectedAddon] : []);
@@ -111,12 +117,45 @@ export default function ProductCard({
                 EGP {visiblePrice}
               </div>
             </div>
-            <button
+            <Button
               onClick={handleAddToCart}
-              className="mt-auto w-full sm:w-auto font-bold py-2 uppercase rounded-xl bg-card text-card-foreground hover:bg-card/90"
-            >
+              variant="outline"
+                    className="
+                    mt-auto
+                      uppercase
+                      relative
+                      w-full sm:w-auto
+                      rounded-full
+                      border border-white/30
+                      bg-white/5
+                      backdrop-blur-2xl
+                      text-white font-medium
+                      hover:text-white
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                      hover:bg-white/30
+                      transition-all duration-200
+
+                      before:absolute
+                      before:inset-0
+                      before:rounded-full
+                      before:bg-linear-to-b
+                      before:from-white/40
+                      before:to-transparent
+                      before:opacity-70
+                      before:pointer-events-none
+
+                      after:absolute
+                      after:inset-0
+                      after:rounded-full
+                      after:ring-1
+                      after:ring-white/20
+                      after:pointer-events-none
+
+                      active:scale-95"
+                  >
               add to cart
-            </button>
+            </Button>
           </div>
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
         </div>

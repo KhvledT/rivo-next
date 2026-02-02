@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 type Props = {
   images?: string[];
   instagram?: string;
   tiktok?: string;
   brand?: string;
-  description?: string;
   linksBgImage?: string;
+  ctaBgImage?: string;
 };
 
 export default function SocialClient({
@@ -17,8 +18,8 @@ export default function SocialClient({
   instagram = "https://www.instagram.com/rivo_coffee",
   tiktok = "https://www.tiktok.com/@rivocoffee",
   brand = "RIVO",
-  description = "Follow us on social media and explore our latest moments.",
   linksBgImage = "/gallery/links-bg.jpg",
+  ctaBgImage,
 }: Props) {
   return (
     <main className="w-full min-h-screen">
@@ -59,7 +60,7 @@ export default function SocialClient({
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
             className="mt-4 max-w-xl opacity-90"
           >
-            {description}
+            Follow us on social media and explore our latest moments.
           </motion.p>
 
           <motion.div
@@ -148,6 +149,75 @@ export default function SocialClient({
           </motion.div>
         </div>
       </section>
+
+      {/* APPLY CTA SECTION */}
+      <section
+        className="relative h-[60vh] px-6 md:px-12 lg:px-20 text-white flex flex-col justify-center"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+            url(${ctaBgImage})
+          `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold">
+            Work With RIVO
+          </h2>
+
+          <p className="mt-5 text-white/80 max-w-xl mx-auto mb-10">
+            Whether you’re looking for a job, have a creative idea,
+            or want to be part of our campaigns — we’re open to hearing from you.
+          </p>
+
+          <Link
+              href="/join"
+              rel="noopener noreferrer"
+              className="relative
+                      w-full sm:w-auto
+                      rounded-full
+                      border border-white/30
+                      bg-white/5
+                      backdrop-blur-sm
+                      px-8 py-3
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                      hover:bg-white/30
+                      transition-all duration-200
+
+                      before:absolute
+                      before:inset-0
+                      before:rounded-full
+                      before:bg-linear-to-b
+                      before:from-white/40
+                      before:to-transparent
+                      before:opacity-70
+                      before:pointer-events-none
+
+                      after:absolute
+                      after:inset-0
+                      after:rounded-full
+                      after:ring-1
+                      after:ring-white/20
+                      after:pointer-events-none
+
+                      active:scale-95"
+            >
+              Join Us
+            </Link>
+        </motion.div>
+      </section>
+
     </main>
   );
 }

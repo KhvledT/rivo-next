@@ -120,8 +120,40 @@ export const Navbar = () => {
           </Link>
 
           <Link href="/products">
-            <Button className="rounded-xl bg-card text-card-foreground hover:bg-card/90 font-semibold">
-              Order Now
+            <Button 
+variant="outline"
+                    className="
+                      relative
+                      w-full sm:w-auto
+                      rounded-full
+                      border border-white/30
+                      bg-white/5
+                      backdrop-blur-2xl
+                      text-white font-medium
+                      hover:text-white
+
+                      shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                      hover:bg-white/30
+                      transition-all duration-200
+
+                      before:absolute
+                      before:inset-0
+                      before:rounded-full
+                      before:bg-linear-to-b
+                      before:from-white/40
+                      before:to-transparent
+                      before:opacity-70
+                      before:pointer-events-none
+
+                      after:absolute
+                      after:inset-0
+                      after:rounded-full
+                      after:ring-1
+                      after:ring-white/20
+                      after:pointer-events-none
+
+                      active:scale-95"
+                  >              Order Now
             </Button>
           </Link>
         </div>
@@ -182,12 +214,6 @@ export const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-
-              <Link href="/products" onClick={() => setIsOpen(false)}>
-                <Button className="w-full btn-primary">
-                  Order Now
-                </Button>
-              </Link>
             </div>
           </motion.div>
         )}

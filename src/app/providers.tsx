@@ -25,6 +25,7 @@ export default function Providers({ children }: { children: ReactNode }) {
           {/* Mobile floating order button */}
           <MobileOrderButton />
           {children}
+          <Toaster />
           </LenisProvider>
         </CartProvider>
       </TooltipProvider>

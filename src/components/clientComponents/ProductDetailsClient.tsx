@@ -42,7 +42,7 @@ export default function ProductDetailsClient({ product }: Props) {
     for (let i = 0; i < quantity; i++) {
       addItem(product, selectedSize, selectedAddons)
     }
-    toast.success(`${product.name} added to cart`)
+    toast.success(`${product.name} added to cart` , { position: 'top-left' })
     router.push('/cart')
   }
 
